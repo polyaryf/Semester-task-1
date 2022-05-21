@@ -153,11 +153,10 @@ public class RedBlackTree extends BaseBinaryTree implements BinarySearchTree {
 
     // -- Deletion -----------------------------------------------------------------------------------
 
-    @SuppressWarnings("squid:S2259") // SonarCloud issues an incorrect potential NPE warning
+
     @Override
     public void deleteNode(int key) {
         Node node = root;
-
         // Find the node to be deleted
         while (node != null && node.data != key) {
             // Traverse the tree to the left or right depending on the key
@@ -167,7 +166,6 @@ public class RedBlackTree extends BaseBinaryTree implements BinarySearchTree {
                 node = node.right;
             }
         }
-
         // Node not found?
         if (node == null) {
             return;
@@ -253,7 +251,8 @@ public class RedBlackTree extends BaseBinaryTree implements BinarySearchTree {
         // Case 2: Red sibling
         if (sibling.color == RED) {
             handleRedSibling(node, sibling);
-            sibling = getSibling(node); // Get new sibling for fall-through to cases 3-6
+            sibling = getSibling(node);
+            // Get new sibling for fall-through to cases 3-6
         }
 
         // Cases 3+4: Black sibling with two black children

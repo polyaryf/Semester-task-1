@@ -12,7 +12,6 @@ public class TestGenerator {
         int n = 1;
         long k = 1;
         Random random = new Random();
-
         while (n != 51) {
             Set<Integer> set = new HashSet<>();
             long bound = k;
